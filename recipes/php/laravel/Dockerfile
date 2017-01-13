@@ -1,4 +1,4 @@
-FROM eclipse/php
+FROM kraeml/php
 
 RUN composer global require "laravel/installer" && \
     sudo sed -i '$ d' /home/user/.bashrc

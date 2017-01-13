@@ -1,4 +1,4 @@
-FROM eclipse/ubuntu_jre
+FROM kraeml/ubuntu_jre
 RUN sudo apt-get update && sudo apt-get install -y --no-install-recommends \
     g++ \
     gcc \

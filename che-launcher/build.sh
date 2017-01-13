@@ -11,4 +11,4 @@ else
   TAG="nightly"
 fi
 
-docker build -t eclipse/che-launcher:$TAG .
+docker build -t kraeml/rpi-che-launcher:$TAG .

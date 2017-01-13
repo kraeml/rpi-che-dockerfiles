@@ -42,7 +42,7 @@ source ./launcher_funcs.sh
 
 @test "wait for che container that never stops" {
   export CHE_SERVER_CONTAINER_NAME="wait-for-che-test1"
-  docker run -d --name ${CHE_SERVER_CONTAINER_NAME} alpine:3.4 ping localhost
+  docker run -d --name ${CHE_SERVER_CONTAINER_NAME} hypriot/rpi-alpine-scratch:v3.4 ping localhost
   wait_until_container_is_stopped 2
   run che_container_is_stopped
   docker rm -f ${CHE_SERVER_CONTAINER_NAME}
@@ -51,7 +51,7 @@ source ./launcher_funcs.sh
 
 @test "wait for che container that stops" {
   export CHE_SERVER_CONTAINER_NAME="wait-for-che-test2"
-  docker run -d --name ${CHE_SERVER_CONTAINER_NAME} alpine:3.4 ping -c 2 localhost
+  docker run -d --name ${CHE_SERVER_CONTAINER_NAME} hypriot/rpi-alpine-scratch:v3.4 ping -c 2 localhost
   wait_until_container_is_stopped 3
   run che_container_is_stopped
   docker rm -f ${CHE_SERVER_CONTAINER_NAME}
@@ -61,9 +61,9 @@ source ./launcher_funcs.sh
 @test "get container conf folder that is set" {
   # Given
   export CHE_SERVER_CONTAINER_NAME="che-test-get-container-conf-folder"
-  CONF_FOLDER=$(pwd)/che-test-conf
+  CONF_FOLDER=$(pwd)/rpi-che-test-conf
   mkdir ${CONF_FOLDER}
-  docker run --name ${CHE_SERVER_CONTAINER_NAME} -v ${CONF_FOLDER}:/conf alpine:3.4 true
+  docker run --name ${CHE_SERVER_CONTAINER_NAME} -v ${CONF_FOLDER}:/conf hypriot/rpi-alpine-scratch:v3.4 true
 
   # When
   result="$(get_che_container_conf_folder)"
@@ -77,7 +77,7 @@ source ./launcher_funcs.sh
 @test "get container conf folder that is not set" {
   # Given
   export CHE_SERVER_CONTAINER_NAME="che-test-get-container-conf-folder"
-  docker run --name ${CHE_SERVER_CONTAINER_NAME} alpine:3.4 true
+  docker run --name ${CHE_SERVER_CONTAINER_NAME} hypriot/rpi-alpine-scratch:v3.4 true
 
   # When
   result="$(get_che_container_conf_folder)"
@@ -90,9 +90,9 @@ source ./launcher_funcs.sh
 @test "get container data folder" {
   # Given
   export CHE_SERVER_CONTAINER_NAME="che-test-get-container-data-folder"
-  DATA_FOLDER=$(pwd)/che-test-data
+  DATA_FOLDER=$(pwd)/rpi-che-test-data
   mkdir ${DATA_FOLDER}
-  docker run --name ${CHE_SERVER_CONTAINER_NAME} -v ${DATA_FOLDER}:/home/user/che/workspaces/ alpine:3.4 true
+  docker run --name ${CHE_SERVER_CONTAINER_NAME} -v ${DATA_FOLDER}:/home/user/rpi-che/workspaces/ hypriot/rpi-alpine-scratch:v3.4 true
 
   # When
   result="$(get_che_container_data_folder)"
@@ -106,20 +106,20 @@ source ./launcher_funcs.sh
 @test "get image name" {
   # Given
   export CHE_SERVER_CONTAINER_NAME="che-test-get-container-image-name"
-  docker run --name ${CHE_SERVER_CONTAINER_NAME} alpine:3.4 true
+  docker run --name ${CHE_SERVER_CONTAINER_NAME} hypriot/rpi-alpine-scratch:v3.4 true
 
   # When
   result="$(get_che_container_image_name)"
   docker rm -f ${CHE_SERVER_CONTAINER_NAME}
 
   # Then
-  [ "$result" = "alpine:3.4" ]
+  [ "$result" = "hypriot/rpi-alpine-scratch:v3.4" ]
 }
 
 @test "get che server container id" {
   # Given
   export CHE_SERVER_CONTAINER_NAME="che-test-get-container-id"
-  long_id=$(docker run -d --name ${CHE_SERVER_CONTAINER_NAME} alpine:3.4 true)
+  long_id=$(docker run -d --name ${CHE_SERVER_CONTAINER_NAME} hypriot/rpi-alpine-scratch:v3.4 true)
   short_id=${long_id:0:12}
 
   # When
@@ -149,7 +149,7 @@ source ./launcher_funcs.sh
 @test "get che get che launcher version with nightly" {
   # Given
   export CHE_SERVER_CONTAINER_NAME="che-test-get-che-launcher-version"
-  long_id=$(docker run -d --name ${CHE_SERVER_CONTAINER_NAME} --entrypoint=true eclipse/che-launcher:nightly)
+  long_id=$(docker run -d --name ${CHE_SERVER_CONTAINER_NAME} --entrypoint=true kraeml/rpi-che-launcher:nightly)
 
   get_che_launcher_container_id() {
     echo ${long_id:0:12}
@@ -166,7 +166,7 @@ source ./launcher_funcs.sh
 @test "get che get che launcher version with no specific version" {
   # Given
   export CHE_SERVER_CONTAINER_NAME="che-test-get-che-launcher-version"
-  long_id=$(docker run -d --name ${CHE_SERVER_CONTAINER_NAME} --entrypoint=true eclipse/che-launcher)
+  long_id=$(docker run -d --name ${CHE_SERVER_CONTAINER_NAME} --entrypoint=true kraeml/rpi-che-launcher)
 
   get_che_launcher_container_id() {
     echo ${long_id:0:12}

@@ -9,10 +9,10 @@
  *   Codenvy, S.A. - initial API and implementation
  */
 // imports
-import {org} from "../../api/dto/che-dto"
-import {CheFileStructWorkspace} from './chefile-struct/che-file-struct';
-import {CheFileStruct} from './chefile-struct/che-file-struct';
-import {CheFileServerTypeStruct} from "./chefile-struct/che-file-struct";
+import {org} from "../../api/dto/rpi-che-dto"
+import {CheFileStructWorkspace} from './rpi-chefile-struct/rpi-che-file-struct';
+import {CheFileStruct} from './rpi-chefile-struct/rpi-che-file-struct';
+import {CheFileServerTypeStruct} from "./rpi-chefile-struct/rpi-che-file-struct";
 import {resolve} from "url";
 import {Websocket} from "../../spi/websocket/websocket";
 import {AuthData} from "../../api/wsmaster/auth/auth-data";
@@ -30,14 +30,14 @@ import {HttpJsonRequest} from "../../spi/http/default-http-json-request";
 import {HttpJsonResponse} from "../../spi/http/default-http-json-request";
 import {UUID} from "../../utils/uuid";
 import {MachineServiceClientImpl} from "../../api/wsmaster/machine/machine-service-client";
-import {CheFileStructWorkspaceCommand} from "./chefile-struct/che-file-struct";
-import {CheFileStructWorkspaceCommandImpl} from "./chefile-struct/che-file-struct";
-import {CheFileStructWorkspaceLoadingAction} from "./chefile-struct/che-file-struct";
+import {CheFileStructWorkspaceCommand} from "./rpi-chefile-struct/rpi-che-file-struct";
+import {CheFileStructWorkspaceCommandImpl} from "./rpi-chefile-struct/rpi-che-file-struct";
+import {CheFileStructWorkspaceLoadingAction} from "./rpi-chefile-struct/rpi-che-file-struct";
 import {ArgumentProcessor} from "../../spi/decorator/argument-processor";
 import {Parameter} from "../../spi/decorator/parameter";
 import {ProductName} from "../../utils/product-name";
 import {SSHGenerator} from "../../spi/docker/ssh-generator";
-import {CheFileStructWorkspaceProject} from "./chefile-struct/che-file-struct";
+import {CheFileStructWorkspaceProject} from "./rpi-chefile-struct/rpi-che-file-struct";
 
 /**
  * Entrypoint for the Chefile handling in a directory.
@@ -86,7 +86,7 @@ export class CheDir {
   authData: AuthData;
   workspace: Workspace;
 
-  @Message('internal/dir/che-dir-constant')
+  @Message('internal/dir/rpi-che-dir-constant')
   i18n : I18n;
 
   constructor(args) {
@@ -112,7 +112,7 @@ export class CheDir {
     if (process.env.CHE_LAUNCHER_IMAGE_NAME) {
       this.cheLauncherImageName = process.env.CHE_LAUNCHER_IMAGE_NAME
     } else {
-      this.cheLauncherImageName = 'eclipse/che-launcher';
+      this.cheLauncherImageName = 'kraeml/rpi-che-launcher';
     }
   }
 
@@ -764,7 +764,7 @@ setupSSHKeys(workspaceDto: org.eclipse.che.api.workspace.shared.dto.WorkspaceDto
 
         let username : string = "user@" + this.chefileStruct.server.ip;
 
-        var p = spawn("docker", ["run", "-v", this.dotCheSshPrivateKeyFile + ":/tmp/ssh.key", "-ti", "codenvy/alpine_jdk8", "ssh", "-o", "UserKnownHostsFile=/dev/null", "-o", "StrictHostKeyChecking=no", username, "-p", port, "-i", "/tmp/ssh.key"], {
+        var p = spawn("docker", ["run", "-v", this.dotCheSshPrivateKeyFile + ":/tmp/ssh.key", "-ti", "kreaml/alpine_jdk8", "ssh", "-o", "UserKnownHostsFile=/dev/null", "-o", "StrictHostKeyChecking=no", username, "-p", port, "-i", "/tmp/ssh.key"], {
           stdio: 'inherit'
         });
 
@@ -879,7 +879,7 @@ setupSSHKeys(workspaceDto: org.eclipse.che.api.workspace.shared.dto.WorkspaceDto
   }
 
   buildLocalIDEUrl() : string {
-    return this.buildLocalCheURL() + "/dashboard/#/ide/che/local";
+    return this.buildLocalCheURL() + "/dashboard/#/ide/rpi-che/local";
   }
 
 

@@ -9,7 +9,7 @@
  *   Codenvy, S.A. - initial API and implementation
  */
 
-import {org} from "../../../api/dto/che-dto"
+import {org} from "../../../api/dto/rpi-che-dto"
 import {MessageBusSubscriber} from "../../../spi/websocket/messagebus-subscriber";
 import {MessageBus} from "../../../spi/websocket/messagebus";
 import {Log} from "../../../spi/log/log";

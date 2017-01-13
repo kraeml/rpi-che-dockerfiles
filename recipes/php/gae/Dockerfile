@@ -6,7 +6,7 @@
 # Contributors:
 # Codenvy, S.A. - initial API and implementation
 
-FROM eclipse/php
+FROM kraeml/php
 ENV GAE /home/user/google_appengine
 
 RUN sudo apt-get update && \

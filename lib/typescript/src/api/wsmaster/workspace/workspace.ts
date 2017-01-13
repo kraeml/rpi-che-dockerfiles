@@ -9,7 +9,7 @@
  *   Codenvy, S.A. - initial API and implementation
  */
 
-import {org} from "../../../api/dto/che-dto"
+import {org} from "../../../api/dto/rpi-che-dto"
 import {AuthData} from "../auth/auth-data";
 import {Websocket} from "../../../spi/websocket/websocket";
 import {HttpJsonRequest} from "../../../spi/http/default-http-json-request";
@@ -22,7 +22,7 @@ import {WorkspaceDisplayOutputMessageBusSubscriber} from "./workspace-log-output
 import {Log} from "../../../spi/log/log";
 import {WorkspaceStopEventPromiseMessageBusSubscriber} from "./workspace-stop-event-promise-subscriber";
 import {RecipeBuilder} from "../../../spi/docker/recipebuilder";
-import {CheFileStructWorkspaceCommand} from "../../../internal/dir/chefile-struct/che-file-struct";
+import {CheFileStructWorkspaceCommand} from "../../../internal/dir/rpi-chefile-struct/rpi-che-file-struct";
 
 /**
  * Workspace class allowing to manage a workspace, like create/start/stop, etc operations

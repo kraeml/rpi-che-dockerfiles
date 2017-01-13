@@ -9,7 +9,7 @@
  *   Codenvy, S.A. - initial API and implementation
  */
 // imports
-import {org} from "../../../api/dto/che-dto"
+import {org} from "../../../api/dto/rpi-che-dto"
 import {Argument} from "../../../spi/decorator/parameter";
 import {Parameter} from "../../../spi/decorator/parameter";
 import {AuthData} from "../../../api/wsmaster/auth/auth-data";
@@ -18,8 +18,8 @@ import {ArgumentProcessor} from "../../../spi/decorator/argument-processor";
 import {Log} from "../../../spi/log/log";
 import {MachineServiceClientImpl} from "../../../api/wsmaster/machine/machine-service-client";
 import {UUID} from "../../../utils/uuid";
-import {CheFileStructWorkspaceCommand} from "../../dir/chefile-struct/che-file-struct";
-import {CheFileStructWorkspaceCommandImpl} from "../../dir/chefile-struct/che-file-struct";
+import {CheFileStructWorkspaceCommand} from "../../dir/rpi-chefile-struct/rpi-che-file-struct";
+import {CheFileStructWorkspaceCommandImpl} from "../../dir/rpi-chefile-struct/rpi-che-file-struct";
 import {Ssh} from "../../../api/wsmaster/ssh/ssh";
 /**
  * This class is handling the connection to a workspace with default ssh key (or custom one)
@@ -123,7 +123,7 @@ export class WorkspaceSshAction {
                 let username:string = user + "@" + ip;
                 let cmd : string = "$(cat >>/tmp/ssh.key <<EOF\n" +  sshPairDto.getPrivateKey() + "\nEOF\n) && chmod 600 /tmp/ssh.key && ssh -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no " + username + " -p " + port + " -i" + " /tmp/ssh.key";
                 Log.getLogger().debug('command is', cmd);
-                var p = spawn("docker", ["run", "-ti", "codenvy/alpine_jdk8", "bash", "-c" , cmd], {
+                var p = spawn("docker", ["run", "-ti", "kreaml/alpine_jdk8", "bash", "-c" , cmd], {
                     stdio: 'inherit'
                 });
 

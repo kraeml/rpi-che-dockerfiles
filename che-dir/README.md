@@ -15,7 +15,7 @@ $ docker ps -a
 
 Clone a folder
 ```
-$ git clone https://github.com/che-samples/web-java-spring-petclinic
+$ git clone https://github.com/rpi-che-samples/web-java-spring-petclinic
 ```
 
 Go into this checkout directory
@@ -26,7 +26,7 @@ $ cd web-java-spring-petclinic
 Run script
 ```
 docker run -v /var/run/docker.sock:/var/run/docker.sock \
-           -v "$PWD":"$PWD" --rm eclipse/che-file \
+           -v "$PWD":"$PWD" --rm kraeml/rpi-che-file \
            $PWD <init|up>
 ```
 

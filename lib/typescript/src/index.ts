@@ -12,9 +12,9 @@ import {Argument} from "./spi/decorator/parameter";
 import {Parameter} from "./spi/decorator/parameter";
 import {ArgumentProcessor} from "./spi/decorator/argument-processor";
 import {Log} from "./spi/log/log";
-import {CheDir} from "./internal/dir/che-dir";
-import {CheTest} from "./internal/test/che-test";
-import {CheAction} from "./internal/action/che-action";
+import {CheDir} from "./internal/dir/rpi-che-dir";
+import {CheTest} from "./internal/test/rpi-che-test";
+import {CheAction} from "./internal/action/rpi-che-action";
 /**
  * Entry point of this library providing commands.
  * @author Florent Benoit

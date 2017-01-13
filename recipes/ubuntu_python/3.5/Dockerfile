@@ -6,7 +6,7 @@
 # Contributors:
 # Codenvy, S.A. - initial API and implementation
 
-FROM eclipse/ubuntu_jre
+FROM kraeml/ubuntu_jre
 
 # remove several traces of debian python 
 RUN sudo apt-get purge -y python.* && \

@@ -9,7 +9,7 @@
  *   Codenvy, S.A. - initial API and implementation
  */
 // imports
-import {org} from "../../../api/dto/che-dto"
+import {org} from "../../../api/dto/rpi-che-dto"
 import {ArgumentProcessor} from "../../../spi/decorator/argument-processor";
 import {Workspace} from "../../../api/wsmaster/workspace/workspace";
 import {AuthData} from "../../../api/wsmaster/auth/auth-data";

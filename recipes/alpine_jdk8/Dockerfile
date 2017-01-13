@@ -90,14 +90,14 @@ RUN apk upgrade --update && \
     echo -e "${PASS}\n${PASS}" | passwd user && \
     chown -R user /home/user/
 
-RUN mkdir /usr/che \
-    && wget -qO /usr/che/che https://raw.githubusercontent.com/eclipse/che/master/che.sh \
-    && chmod +x /usr/che/che
+RUN mkdir /usr/rpi-che \
+    && wget -qO /usr/rpi-che/rpi-che https://raw.githubusercontent.com/kraeml/rpi-che/master/rpi-che.sh \
+    && chmod +x /usr/rpi-che/rpi-che
 
 ENV DOCKER_HOST=tcp://192.168.65.1 \
     M2_HOME=/usr/lib/apache-maven-$MAVEN_VERSION 
 
-ENV PATH=${PATH}:${JAVA_HOME}/bin:${M2_HOME}/bin:/usr/che
+ENV PATH=${PATH}:${JAVA_HOME}/bin:${M2_HOME}/bin:/usr/rpi-che
 
 EXPOSE 22 8000 8080
 

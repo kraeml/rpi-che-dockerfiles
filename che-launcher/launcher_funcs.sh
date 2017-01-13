@@ -392,7 +392,7 @@ get_che_container_conf_folder() {
 }
 
 get_che_container_data_folder() {
-  FOLDER=$(get_che_container_host_bind_folder "/home/user/che/workspaces:Z" $1)
+  FOLDER=$(get_che_container_host_bind_folder "/home/user/rpi-che/workspaces:Z" $1)
   echo "${FOLDER:=not set}"
 }
 

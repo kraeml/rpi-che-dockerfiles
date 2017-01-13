@@ -6,7 +6,7 @@
 # Contributors:
 # Codenvy, S.A. - initial API and implementation
 
-FROM eclipse/debian_jre
+FROM kraeml/debian_jre
 
 ENV GAE /home/user/google_appengine
 

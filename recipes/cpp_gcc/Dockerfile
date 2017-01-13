@@ -6,7 +6,7 @@
 # Contributors:
 # Codenvy, S.A. - initial API and implementation
 
-FROM eclipse/ubuntu_jre
+FROM kraeml/ubuntu_jre
 RUN sudo apt-get update && \
     sudo apt-get install g++ gcc make gdb gdbserver -y && \
     sudo apt-get clean && \

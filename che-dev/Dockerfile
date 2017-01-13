@@ -9,14 +9,14 @@
 #   Mario Loriedo
 #
 # To build, in this directory:
-#  docker build -t codenvy/che-dev .
+#  docker build -t kreaml/rpi-che-dev .
 #
 # Use it to Build Che using Docker on Linux or Mac. Run int the repository root:
 #   docker run -it --rm --name build-che
 #              -v "$HOME/.m2:/home/user/.m2"
-#              -v "$PWD":/home/user/che-build
-#              -w /home/user/che-build
-#              codenvy/che-dev
+#              -v "$PWD":/home/user/rpi-che-build
+#              -w /home/user/rpi-che-build
+#              kreaml/rpi-che-dev
 #              mvn -DskipTests=true
 #                  -Dfindbugs.skip=true
 #                  -Dgwt.compiler.localWorkers=2 -T 1C
@@ -27,7 +27,7 @@
 # For Windows, replace $PWD with Che source code directory.
 #
 
-FROM codenvy/debian_jdk8
+FROM kreaml/debian_jdk8
 ENV NODE_VERSION=0.12.9 \
     NODE_PATH=/usr/local/lib/node_modules
 

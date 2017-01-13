@@ -10,7 +10,7 @@
  */
 import {AuthData} from "../../api/wsmaster/auth/auth-data";
 import {Log} from "../log/log";
-import {org} from "../../api/dto/che-dto";
+import {org} from "../../api/dto/rpi-che-dto";
 /**
  * Implementation of a Request on the remote server
  * @author Florent Benoit

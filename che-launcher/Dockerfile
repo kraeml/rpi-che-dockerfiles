@@ -9,16 +9,16 @@
 #   Tyler Jewell  - Improve debug output
 #
 # To build, in this directory:
-#  `docker build -t codenvy/che-launcher .`
+#  `docker build -t kreaml/rpi-che-launcher .`
 #
 # To use it:
-#  `docker run -t -v /var/run/docker.sock:/var/run/docker.sock codenvy/che-launcher start`
-#  `docker run -t -v /var/run/docker.sock:/var/run/docker.sock codenvy/che-launcher stop`
-#  `docker run -t -v /var/run/docker.sock:/var/run/docker.sock codenvy/che-launcher restart`
-#  `docker run -t -v /var/run/docker.sock:/var/run/docker.sock codenvy/che-launcher update`
+#  `docker run -t -v /var/run/docker.sock:/var/run/docker.sock kreaml/rpi-che-launcher start`
+#  `docker run -t -v /var/run/docker.sock:/var/run/docker.sock kreaml/rpi-che-launcher stop`
+#  `docker run -t -v /var/run/docker.sock:/var/run/docker.sock kreaml/rpi-che-launcher restart`
+#  `docker run -t -v /var/run/docker.sock:/var/run/docker.sock kreaml/rpi-che-launcher update`
 #
 
-FROM alpine:3.4
+FROM hypriot/rpi-alpine-scratch:v3.4
 
 RUN apk add --no-cache \
     ca-certificates \

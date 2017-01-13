@@ -8,7 +8,7 @@
 #   Tyler Jewell - Initial implementation
 #
 # BUILD:
-#  docker build -t codenvy/che-mount .
+#  docker build -t kreaml/rpi-che-mount .
 #
 # LAUNCH CONTAINER:
 #  On linux:
@@ -19,13 +19,13 @@
 #             -v /etc/group:/etc/group:ro 
 #             -v /etc/passwd:/etc/passwd:ro 
 #             -u $(id -u ${USER})
-#             -v <host-dir>:/mnthost codenvy/che-mount <ws-id|ws-name> 
+#             -v <host-dir>:/mnthost kreaml/rpi-che-mount <ws-id|ws-name> 
 #            
 #  On Mac or Windows:
 #  docker run --rm -it --cap-add SYS_ADMIN --device /dev/fuse
 #             --name che-mount 
 #             -v ~/.ssh:/root/.ssh
-#             -v <host-dir>:/mnthost codenvy/che-mount <ws-id|ws-name> 
+#             -v <host-dir>:/mnthost kreaml/rpi-che-mount <ws-id|ws-name> 
 #
 # RUN IN CONTAINER:
 #  echo "secret" | $(echo "yes" | sshfs user@10.0.75.2:/projects /mntssh -p 32774)
@@ -35,7 +35,7 @@
 #
 # INTERNAL SYNC SCRIPT
 #   /bin/synch.sh <ip> <ws-port>
-FROM alpine:3.4
+FROM hypriot/rpi-alpine-scratch:v3.4
 
 ENV UNISON_VERSION=2.48.4
 

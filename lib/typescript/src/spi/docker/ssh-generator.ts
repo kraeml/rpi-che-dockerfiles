@@ -21,7 +21,7 @@ export class SSHGenerator {
    generateKey() : any {
        let map : Map<string,string> = new Map<string, string>();
        var execSync = require('child_process').execSync;
-       let output:string = execSync('docker run --rm --entrypoint /bin/sh codenvy/alpine_jdk8 -c "sudo /usr/bin/ssh-keygen -t rsa -A && echo PRIVATE_KEY_START && sudo cat /etc/ssh/ssh_host_rsa_key && echo PRIVATE_KEY_END && echo PUBLIC_KEY_START && sudo cat /etc/ssh/ssh_host_rsa_key.pub &&echo PUBLIC_KEY_END"').toString();
+       let output:string = execSync('docker run --rm --entrypoint /bin/sh kreaml/alpine_jdk8 -c "sudo /usr/bin/ssh-keygen -t rsa -A && echo PRIVATE_KEY_START && sudo cat /etc/ssh/ssh_host_rsa_key && echo PRIVATE_KEY_END && echo PUBLIC_KEY_START && sudo cat /etc/ssh/ssh_host_rsa_key.pub &&echo PUBLIC_KEY_END"').toString();
 
        // now grab private key
        let isPrivateKey : boolean = false;

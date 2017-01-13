@@ -51,7 +51,7 @@ init_global_variables() {
   DEFAULT_CHE_PRODUCT_NAME="ECLIPSE CHE"
   DEFAULT_CHE_MINI_PRODUCT_NAME="che"
   DEFAULT_CHE_SERVER_CONTAINER_NAME="che-server"
-  DEFAULT_CHE_SERVER_IMAGE_NAME="eclipse/che-server"
+  DEFAULT_CHE_SERVER_IMAGE_NAME="kraeml/rpi-che-server"
   DEFAULT_DOCKER_HOST_IP=$(get_docker_host_ip)
   DEFAULT_CHE_HOSTNAME=$(get_che_hostname)
   DEFAULT_CHE_PORT="8080"
@@ -76,7 +76,7 @@ init_global_variables() {
   CHE_ASSEMBLY_LOCATION="${CHE_ASSEMBLY}":"/assembly:Z"
   # "<-- Added comment with quote to fix broken syntax highlighting
 
-  DEFAULT_CHE_DATA_FOLDER="/home/user/che"
+  DEFAULT_CHE_DATA_FOLDER="/home/user/rpi-che"
   CHE_DATA=${CHE_DATA:-${DEFAULT_CHE_DATA_FOLDER}}
   CHE_DATA=$(get_converted_and_clean_path "${CHE_DATA}")
   CHE_DATA_LOCATION="${CHE_DATA}":"/data:Z"

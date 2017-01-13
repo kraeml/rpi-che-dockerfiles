@@ -5,12 +5,12 @@
 # http://www.eclipse.org/legal/epl-v10.html
 #
 # To build, in this directory:
-#  `docker build -t codenvy/che-ip .`
+#  `docker build -t kreaml/rpi-che-ip .`
 #
 # To use it:
-#  `docker run --rm --net=host codenvy/che-ip`
+#  `docker run --rm --net=host kreaml/rpi-che-ip`
 
-FROM alpine:3.4
+FROM hypriot/rpi-alpine-scratch:v3.4
 
 COPY getip.sh /bin/getip.sh
 

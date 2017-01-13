@@ -9,7 +9,7 @@
  *   Codenvy, S.A. - initial API and implementation
  */
 
-import {org} from "../../../api/dto/che-dto"
+import {org} from "../../../api/dto/rpi-che-dto"
 import {AuthData} from "../auth/auth-data";
 import {HttpJsonRequest} from "../../../spi/http/default-http-json-request";
 import {DefaultHttpJsonRequest} from "../../../spi/http/default-http-json-request";

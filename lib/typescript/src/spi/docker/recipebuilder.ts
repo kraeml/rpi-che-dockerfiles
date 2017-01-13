@@ -10,14 +10,14 @@
  */
 
 import {Log} from "../log/log";
-import {CheFileStructWorkspace} from "../../internal/dir/chefile-struct/che-file-struct";
+import {CheFileStructWorkspace} from "../../internal/dir/rpi-chefile-struct/rpi-che-file-struct";
 /**
  * Build a default recipe.
  * @author Florent Benoit
  */
 export class RecipeBuilder {
 
-    static DEFAULT_DOCKERFILE_CONTENT: string = 'FROM codenvy/ubuntu_jdk8';
+    static DEFAULT_DOCKERFILE_CONTENT: string = 'FROM kreaml/ubuntu_jdk8';
     path: any;
     fs: any;
     currentFolder : any;
